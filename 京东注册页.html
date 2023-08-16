@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 900px;
+            border: 1px solid #333;
+            margin: 20px auto;
+            color: gray;
+        }
+
+        .left {
+            width: 35%;
+            text-align: right;
+        }
+
+        .right {
+            width: 75%;
+            text-align: left;
+        }
+
+        input {
+            width: 260px;
+            height: 30px;
+            outline: none;
+            border: solid 1px gray;
+        }
+
+        .top {
+            background-color: #f7f7f7;
+            height: 30px;
+            line-height: 30px;
+            text-indent: 8px;
+            color: gray;
+        }
+
+        td>span {
+            color: red;
+        }
+
+        #username {
+            background: url(./图片/人物-人.png) no-repeat 220px;
+            background-size: 10%;
+
+        }
+
+        .password {
+            background: url(./图片/人物-人.png) no-repeat 220px;
+            background-size: 10%;
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        .check {
+            width: 12px;
+            height: 12px;
+        }
+
+        .btn {
+            width: 260px;
+            height: 30px;
+            border: none;
+            background-color: red;
+            color: #f7f7f7;
+        }
+
+        .right>select {
+            width: 80px;
+            height: 30px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="./个人网页.html">
+        <table cellspacing="0">
+            <!-- 第一部分  -->
+            <!-- 1.1 -->
+            <tr class="top">
+                <td colspan="2">
+                    账户信息
+                </td>
+
+            </tr>
+            <!-- 1.2 -->
+            <tr>
+                <td class="left">
+                    <span>*</span>用户名：
+                </td>
+                <td class="right">
+                    <input type="text" id="username">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <span>*</span>请设置密码：
+                </td>
+                <td class="right">
+                    <input type="password" class="password">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <span>*</span>请确认密码：
+                </td>
+                <td class="right">
+                    <input type="password" class="password">
+                </td>
+            </tr>
+
+            <!-- 第二部分  -->
+            <!-- 2.1 -->
+            <tr class="top">
+                <td colspan="2">
+                    联系人信息
+                </td>
+
+            </tr>
+            <!-- 2.2 -->
+            <tr>
+                <td class="left">
+                    <span>*</span>联系人姓名：
+                </td>
+                <td class="right">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <span>*</span>所在部门：
+                </td>
+                <td class="right">
+                    <select name="" id="">
+
+                        <option value="">请选择</option>
+                        <option value="">策划部</option>
+                        <option value="">设计部</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <span>*</span>固定电话：
+                </td>
+                <td class="right">
+                    <input type="text">
+                </td>
+            </tr>
+
+            <!-- 第三部分  -->
+            <!-- 3.1 -->
+            <tr class="top">
+                <td colspan="2">
+                    公司信息
+                </td>
+
+            </tr>
+            <!-- 3.2 -->
+            <tr>
+                <td class="left">
+                    <span>*</span>公司名称：
+                </td>
+                <td class="right">
+                    <input type="text">
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <span>*</span>购买类型/用途：
+                </td>
+                <td class="right">
+                    <input type="checkbox" id="it" class="check"> <label for="it">it设备</label>
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="check">通讯设备
+                    &nbsp;&nbsp;
+                    <input type="checkbox" class="check">办公用品
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+
+                </td>
+                <td class="right">
+                    <button class="btn">立即注册</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

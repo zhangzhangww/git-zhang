@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> document.designMode = 'on' </script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        /* body {
+            background-color: #000;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        } */
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover>.dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* 定位 */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a class="active" href="#home">主页</a></li>
+        <li><a href="#news">新闻</a></li>
+        <li><a href="#contact">联系</a></li>
+        <li><a href="#about">关于</a></li>
+    </ul>
+
+    <div style="padding:20px;margin-top:30px;background-color:#1abc9c;height:500px;">
+        <h1>Fixed Top Navigation Bar</h1>
+        <h2>Scroll this page to see the effect</h2>
+        <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+
+        <p>Some text some text some text some text..</p>
+        <p>Some text some text some text some text..</p>
+        <p>Some text some text some text some text..</p>
+        <p>Some text some text some text some text..</p>
+        <p>Some text some text some text some text..</p>
+        <p>Some text some text some text some text..</p>
+
+    </div>
+
+
+    <div class="dropdown">
+        <button class="dropbtn">下拉菜单</button>
+        <div class="dropdown-content">
+            <a href="http://www.runoob.com">菜鸟教程 1</a>
+            <a href="http://www.runoob.com">菜鸟教程 2</a>
+            <a href="http://www.runoob.com">菜鸟教程 3</a>
+        </div>
+    </div>
+
+
+
+    <div class="tooltip">鼠标移动到这
+        <span class="tooltiptext">提示文本</span>
+        <br><br><br><br><br>
+        <button type="button" onclick="alert('hahhaha!')">点我!</button>
+        <canvas id="particle-canvas"></canvas>
+
+        <script>
+            // 创建粒子特效
+            var canvas = document.getElementById("particle-canvas");
+            var ctx = canvas.getContext("2d");
+            var particles = [];
+            var particleCount = 100;
+            var particleRadius = 3;
+            var colors = ["#7FFFD4", "#00FFFF", "#008080", "#00CED1", "#40E0D0"];
+
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            function Particle(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = particleRadius;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+
+                this.update = function () {
+                    this.size -= 0.05;
+                    this.x += Math.random() * 3 - 1.5;
+                    this.y += Math.random() * 3 - 1.5;
+                };
+
+                this.draw = function () {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.closePath();
+                    ctx.fill();
+                };
+            }
+
+            function createParticles(x, y) {
+                for (var i = 0; i < particleCount; i++) {
+                    var particle = new Particle(x, y);
+                    particles.push(particle);
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (var i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    if (particles[i].size <= 0.3) {
+                        particles.splice(i, 1);
+                        i--;
+                    }
+                }
+
+                requestAnimationFrame(animateParticles);
+            }
+
+            // 监听鼠标点击事件
+            document.addEventListener("mousedown", function (event) {
+                createParticles(event.clientX, event.clientY);
+            });
+
+            animateParticles();
+        </script>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            margin-top: 300px;
+            width: 600;
+            height: 80px;
+            background-color: antiquewhite;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .content {
+            width: 100px;
+            height: 1000px;
+            /* background: red; */
+            position: absolute;
+            margin-top: -100px;
+            animation-name: myfirst;
+            animation-duration: 8s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            /* animation-direction: alternate; */
+            animation-play-state: running;
+        }
+
+        @keyframes myfirst {
+            0% {
+                /* background: red; */
+                left: 0px;
+                top: -300px;
+            }
+
+
+            100% {
+                /* background: red; */
+                left: 0px;
+                top: 100px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="content">
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+            <p>123322554</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- <script>
+    var num1 = prompt('请输入数字') - 0;
+    var num2 = prompt('请输入运算符');
+    var num3 = prompt('请输入第二数字') - 0;
+    var sum = 0;
+    switch (num2) {
+        case '+':
+            sum = num1 + num3
+            alert(sum);
+    }
+    switch (num2) {
+        case '-':
+            sum = num1 - num3
+            alert(sum);
+    }
+    switch (num2) {
+        case '*':
+            sum = num1 * num3
+            alert(sum);
+    }
+    switch (num2) {
+        case '/':
+            sum = num1 / num3
+            alert(sum);
+    }
+
+
+</script> -->
+
+<script>
+    for (var i = 70; i >= 10; i = i - 10) {
+        var str = '<hr style="width:' + i + '%">';
+        document.write(str);
+    }
+    for (var i = 10; i <= 70; i = i + 10) {
+        var str = '<hr style="width:' + i + '%">';
+        document.write(str);
+    }
+</script>

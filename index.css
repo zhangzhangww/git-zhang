@@ -1,0 +1,58 @@
+.content {
+    width: 800px;
+    border: 1px solid #999;
+    margin: auto;
+    padding: 40px 25px;
+    background: #999;
+}
+
+.tu {
+
+    width: 100px;
+    height: 100px;
+    background: url(./组\ 3589.png);
+    background-size: 100%;
+    position: static;
+    top: 40px;
+}
+
+.tu:hover {
+    background: url(./升.gif);
+    background-size: 100%;
+
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    color: #999;
+}
+
+
+
+#time {
+    font-size: 12px;
+    text-align: center;
+}
+
+.pic {
+    text-align: center;
+}
+
+span {
+    color: brown;
+}
+
+p {
+    font-size: 15px;
+    text-indent: 2em;
+
+}
+
+.see {
+    font-weight: 900;
+}
